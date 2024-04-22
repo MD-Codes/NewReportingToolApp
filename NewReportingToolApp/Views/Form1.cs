@@ -7,8 +7,10 @@ namespace NewReportingToolApp
     public partial class Form1 : Form, IReportingTool
     {
         public event EventHandler SearchAttempted;
+        public string message;
         public DataView dv { get; set; }
         public DataTable dt { get; set; }
+
         public Form1()
         {
             InitializeComponent();
