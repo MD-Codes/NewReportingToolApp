@@ -34,6 +34,6 @@ namespace ReportingToolTests.ModelTests
             //Assert
             Assert.IsNotNull(result, message: "Should not be null");
         }
-        
+        // new text
     }
 }
