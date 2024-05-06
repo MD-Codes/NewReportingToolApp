@@ -1,24 +1,22 @@
 ﻿using NewReportingToolApp;
 using NewReportingToolApp.Models;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.Windows.Forms;
 
-public class ReportingToolPresenter
+public class ReportingToolPresenter : Observer
 {
     private readonly IReportingTool _View;
     private readonly IModel _Model;
-    
+
     public ReportingToolPresenter(IReportingTool view, IModel model)
     {
         _View = view;
         _Model = model;
         fillDataTable(_Model.ReturnData());
-        _View.SearchAttempted += UpdateView;
+        //_View.SearchAttempted += UpdateView;
         ReturnDataView(_View.dv);
-        
+        _View.RegisterObserver(this);
+
     }
     public void fillDataTable(List<IMemberInfo> list)
     {
@@ -33,9 +31,16 @@ public class ReportingToolPresenter
     {
         _View.SetDataView(dv);
     }
-    public void UpdateView(object sender, EventArgs e)
+    //public void UpdateView(object sender, EventArgs e)
+    //{
+
+    //    _View.dv.RowFilter = string.Format("Name Like '%{0}%'", _View.TextBoxString);
+    //    ReturnDataView(_View.dv);
+    //}
+    public void OnSearchTextChanged(string searchText)
     {
-        _View.dv.RowFilter = string.Format("Name Like '%{0}%'", _View.TextBoxString);
-        ReturnDataView(_View.dv);
-    } 
+        _View.dv.RowFilter = string.Format("Name Like '%{0}%'", searchText);
+        _View.SetDataView(_View.dv);
+    }
+
 }

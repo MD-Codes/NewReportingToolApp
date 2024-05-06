@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewReportingToolApp.Models;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -12,5 +13,6 @@ namespace NewReportingToolApp
         event EventHandler SearchAttempted;
         void SetDataView(DataView data);
         void addColums();
+        void RegisterObserver(Observer observer);
     }
 }

@@ -40,13 +40,14 @@
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(176, 22);
             this.textBox.TabIndex = 0;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.Location = new System.Drawing.Point(24, 45);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(63, 20);
+            this.NameLabel.Size = new System.Drawing.Size(50, 16);
             this.NameLabel.TabIndex = 1;
             this.NameLabel.Text = "Name: ";
             // 
@@ -59,7 +60,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(743, 328);
             this.dataGridView1.TabIndex = 3;
-            
             // 
             // Form1
             // 
@@ -69,7 +69,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.textBox);
-            //this.Name = "Form1";
+            this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

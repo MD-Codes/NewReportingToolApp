@@ -77,6 +77,7 @@
     <Compile Include="Models\ArrayOfIPartyAffiliation.cs" />
     <Compile Include="Models\ILoadFile.cs" />
     <Compile Include="Models\LoadFile.cs" />
+    <Compile Include="Models\Observer.cs" />
     <Compile Include="Models\ParseAllData.cs" />
     <Compile Include="Models\publicwhip.cs" />
     <Compile Include="Models\IMemberInfo.cs" />

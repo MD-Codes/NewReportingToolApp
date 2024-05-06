@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NewReportingToolApp.Models;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -10,12 +12,12 @@ namespace NewReportingToolApp
         public string message;
         public DataView dv { get; set; }
         public DataTable dt { get; set; }
+        private readonly List<Observer> _observers = new List<Observer>();
 
         public Form1()
         {
             InitializeComponent();
             addColums();
-           textBox.TextChanged += (sender, e) => SearchAttempted?.Invoke(sender, e);
         }
         public string TextBoxString
         {
@@ -35,6 +37,23 @@ namespace NewReportingToolApp
             dt.Columns.Add("Party");
             dt.Columns.Add("Total Amount");
             dv = new DataView(dt);
+        }
+        public void RegisterObserver(Observer observer)
+        {
+            _observers.Add(observer);
+        }
+
+        private void NotifyObservers()
+        {
+            foreach (var observer in _observers)
+            {
+                observer.OnSearchTextChanged(TextBoxString);
+            }
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            NotifyObservers();
         }
     }
 }
