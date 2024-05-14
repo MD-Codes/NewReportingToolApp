@@ -58,6 +58,10 @@ namespace NewReportingToolApp.Tests
             dv = new DataView(dt);
         }
 
+        public void RegisterObserver(Observer observer)
+        {
+        }
+
         public void SetDataView(DataView data) 
         {
         }
