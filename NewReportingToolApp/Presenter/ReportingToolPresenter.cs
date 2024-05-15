@@ -1,14 +1,17 @@
 ﻿using NewReportingToolApp;
 using NewReportingToolApp.Models;
+using NewReportingToolApp.Models.API;
 using System.Collections.Generic;
 using System.Data;
+using static NewReportingToolApp.Models.API.ApiMembers;
 
 public class ReportingToolPresenter : Observer
 {
+    
     private readonly IReportingTool _View;
-    private readonly IModel _Model;
+    private readonly IApiModel _Model;
 
-    public ReportingToolPresenter(IReportingTool view, IModel model)
+    public ReportingToolPresenter(IReportingTool view, IApiModel model)
     {
         _View = view;
         _Model = model;
@@ -18,12 +21,12 @@ public class ReportingToolPresenter : Observer
         _View.RegisterObserver(this);
 
     }
-    public void fillDataTable(List<IMemberInfo> list)
+    public void fillDataTable(List<Class1> list)
     {
 
         foreach (var item in list)
         {
-            _View.dt.Rows.Add(item.Name, item.Donors, item.PartyName, item.TotalAmount);
+            _View.dt.Rows.Add(item.name, item.person_id, item.party, item.office);
         }
 
     }

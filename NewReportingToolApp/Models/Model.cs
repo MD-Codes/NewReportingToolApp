@@ -1,11 +1,5 @@
 ﻿using NewReportingToolApp.Properties;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NewReportingToolApp.Models
 {
@@ -13,6 +7,7 @@ namespace NewReportingToolApp.Models
     {
         public List<IMemberInfo> ReturnData()
         {
+
             ParseAllData parse = new ParseAllData();
 
             //retrieve data from LoadFiles
@@ -22,8 +17,11 @@ namespace NewReportingToolApp.Models
             // Process data using the DataProcessor
             List<IMemberInfo> displayList = parse.ProcessData(regmem, partyAff);
 
+            
+
             return displayList;
         }
+
        
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NewReportingToolApp.Models;
+using NewReportingToolApp.Models.API;
 
 namespace NewReportingToolApp
 {
@@ -18,7 +19,8 @@ namespace NewReportingToolApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form1 form1 = new Form1(); //view
-            Model model = new Model();
+            //Model model = new Model();
+            ApiModle model = new ApiModle();
             ReportingToolPresenter presenter = new ReportingToolPresenter(form1, model);
             Application.Run(form1);
         }
